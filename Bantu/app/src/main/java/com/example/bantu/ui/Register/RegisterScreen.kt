@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bantu.MainActivity
 import com.example.bantu.R
+import com.example.bantu.ui.Components.CustomTextFieldReg
 import com.example.bantu.ui.theme.BantuTheme
 
 @Composable
@@ -144,7 +145,7 @@ fun RegisterScreen(name: String) {
 
                         modifier = Modifier.width(200.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = colorResource(id = R.color.purple)
+                            containerColor = colorResource(id = R.color.dark_pink)
                         )
                     ) {
 
@@ -202,57 +203,7 @@ fun RegisterScreen(name: String) {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CustomTextFieldReg(
-    placeholder: String,
-    value: String,
-    isPassword: Boolean,
-    icon: ImageVector,
-    onValueChange: (String) -> Unit
-) {
-    TextField(
-        value = value,
-        onValueChange = { onValueChange(it) },
-        shape = RoundedCornerShape(30.dp),
-        modifier = Modifier
 
-            .border(
-                width = 2.dp,
-                color = colorResource(id = R.color.purple),
-                shape = CircleShape,
-            ),
-        colors = TextFieldDefaults.textFieldColors(
-            focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
-            unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
-
-        ),
-        label = {
-            Text(
-                text = placeholder,
-                fontSize = 14.sp,
-            )
-        },
-        leadingIcon = {
-            if (isPassword) {
-                Icon(imageVector = icon, contentDescription = "Custom icon")
-            } else {
-                Icon(imageVector = icon, contentDescription = "Custom icon")
-            }
-        },
-        trailingIcon = {
-            if (isPassword) Icon(
-                imageVector = Icons.Filled.Info,
-                contentDescription = "Custom icon"
-            )
-        },
-        keyboardOptions = KeyboardOptions(
-            keyboardType = if (isPassword) KeyboardType.Password else KeyboardType.Text,
-            capitalization = KeyboardCapitalization.None
-        ),
-        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None
-    )
-}
 
 @Preview(showBackground = true)
 @Composable

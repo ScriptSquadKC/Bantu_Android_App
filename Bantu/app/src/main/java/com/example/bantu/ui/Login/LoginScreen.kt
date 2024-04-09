@@ -36,9 +36,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bantu.ui.Register.CustomTextFieldReg
 import com.example.bantu.MainActivity
 import com.example.bantu.R
+import com.example.bantu.ui.Components.CustomTextFieldReg
 import com.example.bantu.ui.theme.BantuTheme
 
 @Composable
@@ -63,17 +63,26 @@ fun LoginScreen(name: String) {
 
             ) {
 
-                Spacer(modifier = Modifier.size(50.dp))
+                Image(
+                    modifier = Modifier.size(150.dp,150.dp),
+                    painter = painterResource(id = R.drawable.logo2),
+                    contentDescription = "logoapp",
+                    contentScale = ContentScale.Crop
+                )
+
+                Spacer(modifier = Modifier.size(20.dp))
                 Text(
                     textAlign = TextAlign.Center,
                     text = "Wellcome Back",
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(id = R.color.white)
 
                 )
                 Text(
                     text = "Login to your account",
                     fontSize = 12.sp,
+                    color = colorResource(id = R.color.white)
                 )
 
                 Spacer(modifier = Modifier.size(20.dp))
@@ -130,7 +139,7 @@ fun LoginScreen(name: String) {
                                     imageVector = Icons.Filled.CheckCircle,
                                     contentDescription = "Remember Me",
                                     modifier = Modifier.size(14.dp),
-                                    tint = colorResource(id = R.color.white)
+                                    tint = colorResource(id = R.color.orange)
                                 )
                                 Text(
                                     text = "Remember me",
@@ -166,7 +175,7 @@ fun LoginScreen(name: String) {
 
                         modifier = Modifier.width(200.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = colorResource(id = R.color.purple)
+                            containerColor = colorResource(id = R.color.orange)
                         )
                     ) {
                         Text(
@@ -181,7 +190,7 @@ fun LoginScreen(name: String) {
                     Button(
                         onClick = { /*TODO*/ },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = colorResource(id = R.color.orange)
+                            containerColor = colorResource(id = R.color.dark_pink)
                         )
                     ) {
                         Text(

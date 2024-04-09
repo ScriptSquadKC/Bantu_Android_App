@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.bantu.ui.HomePersonal.HomePersonalScreen
 import com.example.bantu.ui.Login.LoginScreen
 import com.example.bantu.ui.Register.RegisterScreen
 import com.example.bantu.ui.theme.BantuTheme
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginScreen(name)
+                    //LoginScreen(name)
+                    HomePersonalScreen()
                 }
             }
         }
