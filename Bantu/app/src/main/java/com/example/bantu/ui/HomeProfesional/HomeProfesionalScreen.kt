@@ -1,4 +1,4 @@
-package com.example.bantu.ui.HomePersonal
+package com.example.bantu.ui.HomeProfesional
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,7 +30,7 @@ import com.example.bantu.ui.Components.ImageHomeComponent
 
 
 @Composable
-fun HomePersonalScreen() {
+fun HomeProfesionalScreen() {
 
     var nameUser: String = "Inma"
 
@@ -55,7 +55,7 @@ fun HomePersonalScreen() {
 
 
                 ) {
-            
+
                     Image(
                         modifier = Modifier.size(40.dp, 40.dp),
                         painter = painterResource(id = R.drawable.icon_user),
@@ -83,7 +83,7 @@ fun HomePersonalScreen() {
                 item {
                     ImageHomeComponent(
                         id = R.drawable.rectangle_1,
-                        text = "Mis Tablas de ejercicios",
+                        text = "Crear rutinas",
                         width = 400,
                         height = 150,
                         onClick = { /* Acción cuando se hace clic en el botón */ }
@@ -105,20 +105,20 @@ fun HomePersonalScreen() {
 
                                 )
 
-                                    ImageHomeComponent(
-                                        id = R.drawable.rectangle_3,
-                                        text = "Mis compras",
-                                        width = 180,
-                                        height = 180,
-                                        onClick = { /* Acción cuando se hace clic en el botón */ }
-                                    )
+                                ImageHomeComponent(
+                                    id = R.drawable.rectangle_3,
+                                    text = "Mis informes",
+                                    width = 180,
+                                    height = 180,
+                                    onClick = { /* Acción cuando se hace clic en el botón */ }
+                                )
                             }
                         }
 
                         item {
                             ImageHomeComponent(
                                 id = R.drawable.rectangle_4,
-                                text = "Profesionales",
+                                text = "Mis clientes",
                                 width = 180,
                                 height = 360,
                                 onClick = { /* Acción cuando se hace clic en el botón */ }
@@ -157,9 +157,9 @@ fun HomePersonalScreen() {
                         ) {
                             Column {
                                 Spacer(modifier = Modifier.size(5.dp))
-                                Text("12:45")
-                                Text("Entrenador personal")
-                                Text("Raul Gonzalez")
+                                Text("12:45 - 13:15")
+                                Text("Sesion de entrenamiento")
+                                Text("Raul Maroto")
                             }
                         }
                     }
@@ -171,6 +171,6 @@ fun HomePersonalScreen() {
 
 @Preview
 @Composable
-private fun HomePersonalScreen_Preview() {
-    HomePersonalScreen()
+private fun HomeProfesionalScreen_Preview() {
+    HomeProfesionalScreen()
 }
