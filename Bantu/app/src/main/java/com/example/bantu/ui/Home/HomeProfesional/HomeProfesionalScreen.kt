@@ -1,4 +1,4 @@
-package com.example.bantu.ui.HomeProfesional
+package com.example.bantu.ui.Home.HomeProfesional
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

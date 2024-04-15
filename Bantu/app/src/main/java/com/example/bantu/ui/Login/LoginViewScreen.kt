@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -36,27 +35,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bantu.MainActivity
 import com.example.bantu.R
 import com.example.bantu.ui.Components.CustomTextFieldReg
 import com.example.bantu.ui.theme.BantuTheme
 
 @Composable
-fun LoginScreen(name: String) {
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+fun LoginViewScreen(loginViewModel: LoginViewModel) {
+    //var username by remember { mutableStateOf("") }
+    //var password by remember { mutableStateOf("") }
+    var username = "pep@email.es"
+    var password = "password"
+
     var emailError : Boolean = false
     var passwordError : Boolean = false
 
     Box(
         Modifier.fillMaxSize(), Alignment.Center
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.backgroun_darkpng),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
             Column(
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -171,7 +166,7 @@ fun LoginScreen(name: String) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { loginViewModel.launchLogin(username, password) },
 
                         modifier = Modifier.width(200.dp),
                         colors = ButtonDefaults.buttonColors(
@@ -210,8 +205,8 @@ fun LoginScreen(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    val mainActivity = MainActivity()
+    val loginActivity = LoginViewActivity()
     BantuTheme {
-        LoginScreen(mainActivity.name)
+        //LoginViewScreen()
     }
 }

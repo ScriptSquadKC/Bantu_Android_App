@@ -46,13 +46,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bantu.MainActivity
 import com.example.bantu.R
 import com.example.bantu.ui.Components.CustomTextFieldReg
+import com.example.bantu.ui.Login.LoginViewActivity
 import com.example.bantu.ui.theme.BantuTheme
 
 @Composable
-fun RegisterScreen(name: String) {
+fun RegisterScreen() {
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -60,12 +60,6 @@ fun RegisterScreen(name: String) {
     Box(
         Modifier.fillMaxSize(), Alignment.Center
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.backgroun_darkpng),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -208,8 +202,8 @@ fun RegisterScreen(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun RegisterScreenPreview() {
-    val mainActivity = MainActivity()
+    val loginViewActivity = LoginViewActivity()
     BantuTheme {
-        RegisterScreen(mainActivity.name)
+        RegisterScreen()
     }
 }

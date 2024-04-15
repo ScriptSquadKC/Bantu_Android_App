@@ -25,7 +25,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bantu.MainActivity
 import com.example.bantu.R
 import com.example.bantu.ui.Login.LoginScreen
 import com.example.bantu.ui.theme.BantuTheme
