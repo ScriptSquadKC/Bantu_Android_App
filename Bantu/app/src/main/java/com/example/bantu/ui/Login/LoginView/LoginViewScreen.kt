@@ -1,4 +1,4 @@
-package com.example.bantu.ui.Login
+package com.example.bantu.ui.Login.LoginView
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,13 +17,10 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,15 +32,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.bantu.R
 import com.example.bantu.ui.Components.CustomTextFieldReg
+import com.example.bantu.ui.Login.LoginActivity
 import com.example.bantu.ui.theme.BantuTheme
 
 @Composable
-fun LoginViewScreen(loginViewModel: LoginViewModel) {
+fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController) {
     //var username by remember { mutableStateOf("") }
     //var password by remember { mutableStateOf("") }
-    var username = "pep@email.es"
+    var username = "test@email.es"
     var password = "password"
 
     var emailError : Boolean = false
@@ -183,7 +182,11 @@ fun LoginViewScreen(loginViewModel: LoginViewModel) {
                     Spacer(modifier = Modifier.size(30.dp))
 
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                                  // IR AL REGISTER_SCREEN
+                        navController.navigate("Register")
+
+                                  },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = colorResource(id = R.color.dark_pink)
                         )
@@ -205,7 +208,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel) {
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    val loginActivity = LoginViewActivity()
+    val loginActivity = LoginActivity()
     BantuTheme {
         //LoginViewScreen()
     }

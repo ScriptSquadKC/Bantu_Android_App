@@ -34,7 +34,6 @@ fun HomePersonalScreen() {
 
     var nameUser: String = "Inma"
 
-
     Box(
         modifier = Modifier.fillMaxSize()
     ) {

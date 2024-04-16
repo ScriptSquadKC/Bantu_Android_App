@@ -20,3 +20,5 @@ class PrefRepository(val context: Context) {
 
 
 }
+
+// /data/data/tu.paquete.de.aplicacion/shared_prefs/nombre_del_archivo_de_preferencias.xml

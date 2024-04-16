@@ -1,4 +1,4 @@
-package com.example.bantu.ui.Login
+package com.example.bantu.ui.Login.LoginView
 
 sealed class LoginState {
     data class Success(val token: String) : LoginState()

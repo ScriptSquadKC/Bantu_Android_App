@@ -1,4 +1,4 @@
-package com.example.bantu.ui.Login
+package com.example.bantu.ui.Login.LoginView
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,6 +19,7 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state: MutableStateFlow<LoginState> = MutableStateFlow(LoginState.Idle)
     val state: StateFlow<LoginState> = _state.asStateFlow()
+
 
 
     fun launchLogin(userName: String, password: String) {

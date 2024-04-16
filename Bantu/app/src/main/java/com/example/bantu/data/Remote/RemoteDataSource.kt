@@ -2,16 +2,16 @@ package com.example.bantu.data.Remote
 
 import com.example.bantu.Domain.Model.AuthResponse
 import com.example.bantu.di.NetworkLogin
-import com.example.bantu.di.NetworkModule
 import javax.inject.Inject
 
-class RemoteDataSource@Inject constructor(
-    private val networkLogin: NetworkLogin
-){
+class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
+    suspend fun launchLogin(emailField: String, passWord: String): AuthResponse {
+        // Realiza la llamada de red utilizando la instancia de bantuApi
+        val credentials = okhttp3.Credentials.basic(emailField, passWord)
 
-
-        suspend fun launchLogin(userName: String, password: String): String {
-            return networkLogin.launchLogin(userName,password)
-        }
+        val response = bantuApi.login(emailField, passWord, credentials)
+        return response
+    }
 }
+
 

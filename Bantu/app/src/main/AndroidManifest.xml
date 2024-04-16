@@ -19,7 +19,7 @@
         android:name=".AppClass"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Login.LoginViewActivity"
+            android:name=".ui.Login.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Bantu">
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.Home.HomeViewActivity">
+            android:name=".ui.Home.HomeActivity">
 
         </activity>
     </application>
