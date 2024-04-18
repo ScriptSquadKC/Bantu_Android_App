@@ -47,6 +47,8 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
 
     var emailError : Boolean = false
     var passwordError : Boolean = false
+    val heightTextfield = 40
+    val fontSizeTexfield = 14
 
     Box(
         Modifier.fillMaxSize(), Alignment.Center
@@ -90,7 +92,8 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                         value = username,
                         onValueChange = {
                             username = it
-                        }
+                        },
+                        fontSize = fontSizeTexfield
                     )
                 }
 
@@ -111,7 +114,8 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                         value = password,
                         onValueChange = {
                             password = it
-                        }
+                        },
+                        fontSize = fontSizeTexfield
                     )
                 }
                 if(passwordError) {

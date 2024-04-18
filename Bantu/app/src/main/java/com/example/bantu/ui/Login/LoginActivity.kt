@@ -3,6 +3,7 @@ package com.example.bantu.ui.Login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -27,16 +28,18 @@ import com.example.bantu.ui.Home.HomeActivity
 import com.example.bantu.ui.Login.LoginView.LoginState
 import com.example.bantu.ui.Login.LoginView.LoginViewModel
 import com.example.bantu.ui.Login.LoginView.LoginViewScreen
-import com.example.bantu.ui.Login.RegisterView.RegisterScreen
+import com.example.bantu.ui.Login.RegisterView.RegisterViewModel
+import com.example.bantu.ui.Login.RegisterView.RegisterViewScreen
 
 
 @AndroidEntryPoint
 class LoginActivity : ComponentActivity() {
-    var token = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val loginViewModel by viewModels<LoginViewModel> ()
+        val registerViewModel by viewModels<RegisterViewModel>()
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
@@ -61,7 +64,7 @@ class LoginActivity : ComponentActivity() {
 
                         composable("Register") {
 
-                        RegisterScreen()
+                            RegisterViewScreen()
 
                         }
 
@@ -97,7 +100,9 @@ fun LoginScreen(loginViewModel: LoginViewModel){
 
         is LoginState.Error -> {
             val error = (state as LoginState.Error).error
-            Text("Error: $error")
+            //Text("Error: $error")
+            Toast.makeText(LocalContext.current, "Error: $error", Toast.LENGTH_SHORT).show()
+
         }
     }
 }
