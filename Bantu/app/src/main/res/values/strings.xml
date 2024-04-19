@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Bantu</string>
+    <string name="PASSWORD">password</string>
+    <string name="REGISTER">Registro</string>
+    <string name="CREATE_YOUR_ACCOUNT">Crea tu cuenta</string>
+    <string name="NICKNAME">NickName</string>
+    <string name="YOUR_EMAIL">Tu email</string>
+    <string name="PROFESIONAL">Profesional</string>
+    <string name="SIGN_IN">Entrar</string>
+    <string name="WELLCOME_BACK">Bienvenido</string>
+    <string name="LOGIN_TO_YOUR_ACCOUNT">Conecta con tu cuenta</string>
+    <string name="REMERBERME">Recuerdame</string>
+    <string name="FORGOT_PASSWORD">Olvidaste password?</string>
+    <string name="EMAIL">Email</string>
+
 </resources>

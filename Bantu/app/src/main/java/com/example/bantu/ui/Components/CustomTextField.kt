@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -32,7 +33,7 @@ import com.example.bantu.ui.theme.BantuTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTextFieldReg(
-    placeholder: String,
+    placeholder: Int,
     value: String,
     isPassword: Boolean,
     icon: ImageVector,
@@ -56,16 +57,14 @@ fun CustomTextFieldReg(
             ),
         label = {
             Text(
-                text = placeholder,
+                text = stringResource(placeholder),
                 fontSize = fontSize.sp,
             )
         },
         leadingIcon = {
-            if (isPassword) {
+
                 Icon(imageVector = icon, contentDescription = "Custom icon")
-            } else {
-                Icon(imageVector = icon, contentDescription = "Custom icon")
-            }
+
         },
         trailingIcon = {
             if (isPassword) Icon(
@@ -85,7 +84,7 @@ fun CustomTextFieldReg(
 @Composable
 fun LoginScreenPreview() {
         CustomTextFieldReg(
-            placeholder = "NickName",
+            placeholder = 1,
             isPassword = false,
             icon = Icons.Filled.Person,
             value = "nickname",

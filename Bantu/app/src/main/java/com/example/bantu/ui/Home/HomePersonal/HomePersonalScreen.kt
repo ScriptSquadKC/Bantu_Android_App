@@ -39,6 +39,7 @@ fun HomePersonalScreen() {
     ) {
         Column (
 
+
         ){
             Box(
                 modifier = Modifier

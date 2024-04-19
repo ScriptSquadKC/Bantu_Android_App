@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -69,14 +70,14 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                 Spacer(modifier = Modifier.size(20.dp))
                 Text(
                     textAlign = TextAlign.Center,
-                    text = "Wellcome Back",
-                    fontSize = 20.sp,
+                    text = stringResource(id = R.string.WELLCOME_BACK),
+                    fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
                     color = colorResource(id = R.color.white)
 
                 )
                 Text(
-                    text = "Login to your account",
+                    text = stringResource(R.string.LOGIN_TO_YOUR_ACCOUNT),
                     fontSize = 12.sp,
                     color = colorResource(id = R.color.white)
                 )
@@ -86,7 +87,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                 Box( modifier = Modifier
                 ){
                     CustomTextFieldReg(
-                        placeholder = "Email",
+                        placeholder = R.string.EMAIL,
                         isPassword = false,
                         icon = Icons.Filled.Email,
                         value = username,
@@ -108,7 +109,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
 
                 Box {
                     CustomTextFieldReg(
-                        placeholder = "Password",
+                        placeholder = R.string.PASSWORD,
                         isPassword = true, // Cambiado a true
                         icon = Icons.Filled.Lock,
                         value = password,
@@ -135,12 +136,12 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                             Row() {
                                 Icon(
                                     imageVector = Icons.Filled.CheckCircle,
-                                    contentDescription = "Remember Me",
+                                    contentDescription = stringResource(R.string.REMERBERME),
                                     modifier = Modifier.size(14.dp),
                                     tint = colorResource(id = R.color.orange)
                                 )
                                 Text(
-                                    text = "Remember me",
+                                    text = stringResource(R.string.REMERBERME),
                                     fontSize = 10.sp,
                                     color = colorResource(id = R.color.white)
                                 )
@@ -155,7 +156,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                     item() {
                         TextButton(onClick = { /* Do something! */ }) {
                             Text(
-                                text = "Forgot password?",
+                                text = stringResource(R.string.FORGOT_PASSWORD),
                                 fontSize = 10.sp,
                                 color = colorResource(id = R.color.orange)
                             )
@@ -177,7 +178,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                         )
                     ) {
                         Text(
-                            text = "Sign in",
+                            text = stringResource(R.string.SIGN_IN),
                             fontSize = 16.sp,
                         )
 
@@ -196,7 +197,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                         )
                     ) {
                         Text(
-                            text = "Create an account",
+                            text = stringResource(R.string.CREATE_YOUR_ACCOUNT),
                             fontSize = 10.sp,
                         )
 

@@ -29,16 +29,10 @@ class Repository @Inject constructor(
         email: String,
         password: String,
         profesional: String,
-        country: String,
-        province: String,
-        city: String,
-        postal_code: String,
-        first_name: String,
-        last_name1: String,
-        last_name2: String,
-        photo: String,
+
+
     ){
-        remoteDataSource.launchRegister(nickname,email, password, profesional, country, province, city, postal_code, first_name, last_name1, last_name2, photo)
+        remoteDataSource.launchRegister(nickname,email, password, profesional)
 
     }
 

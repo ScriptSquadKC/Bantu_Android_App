@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bantu</string>
+    <string name="PASSWORD">password</string>
+    <string name="REGISTER">Register</string>
+    <string name="CREATE_YOUR_ACCOUNT">Create your account</string>
+    <string name="NICKNAME">NickName</string>
+    <string name="YOUR_EMAIL">Your email\"</string>
+    <string name="PROFESIONAL">Profesional</string>
+    <string name="SIGN_IN">Sign in</string>
+    <string name="WELLCOME_BACK">Wellcome Back</string>
+    <string name="LOGIN_TO_YOUR_ACCOUNT">Login to your account</string>
+    <string name="REMERBERME">Remember me</string>
+    <string name="FORGOT_PASSWORD">Forgot password?</string>
+    <string name="EMAIL">Email</string>
+</resources>

@@ -17,16 +17,8 @@ class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
         email: String,
         password: String,
         profesional: String,
-        country: String,
-        province: String,
-        city: String,
-        postal_code: String,
-        first_name: String,
-        last_name1: String,
-        last_name2: String,
-        photo: String,
     ) {
-        bantuApi.register(nickname, email, password, profesional, country, province, city, postal_code, first_name, last_name1, last_name2, photo)
+        bantuApi.register(nickname, email, password, profesional )
     }
 
 }

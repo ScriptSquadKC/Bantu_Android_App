@@ -64,7 +64,7 @@ class LoginActivity : ComponentActivity() {
 
                         composable("Register") {
 
-                            RegisterViewScreen()
+                            RegisterViewScreen(registerViewModel)
 
                         }
 
