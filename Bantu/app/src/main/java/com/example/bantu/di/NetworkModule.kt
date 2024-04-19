@@ -17,20 +17,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    /*
-    OkHttpClient client = new OkHttpClient.Builder()
-    .addInterceptor(new LoggingInterceptor())
-    .build();
-
-Request request = new Request.Builder()
-    .url("http://www.publicobject.com/helloworld.txt")
-    .header("User-Agent", "OkHttp Example")
-    .build();
-
-Response response = client.newCall(request).execute();
-response.body().close();
-     */
-
     private const val BASE_URL = "https://bantubackend-dev-tnqr.2.ie-1.fl0.io"
 
     @Provides

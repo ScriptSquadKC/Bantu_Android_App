@@ -31,15 +31,13 @@ import com.example.bantu.ui.Components.ImageHomeComponent
 
 @Composable
 fun HomePersonalScreen() {
-
+    
     var nameUser: String = "Inma"
 
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Column (
-
-
         ){
             Box(
                 modifier = Modifier
@@ -50,10 +48,8 @@ fun HomePersonalScreen() {
 
             ) {
                 Row(
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(0.dp),
                     verticalAlignment = Alignment.CenterVertically
-
-
                 ) {
             
                     Image(
@@ -67,7 +63,7 @@ fun HomePersonalScreen() {
                         color = colorResource(id = R.color.black)
 
                     )
-                    Spacer(modifier = Modifier.size(10.dp))
+                    Spacer(modifier = Modifier.size(20.dp))
                     Text(
                         text = nameUser,
                         color = colorResource(id = R.color.black)
@@ -76,7 +72,7 @@ fun HomePersonalScreen() {
             }
 
             LazyColumn (
-                modifier = Modifier.padding(10.dp,0.dp),
+                modifier = Modifier.padding(20.dp,10.dp),
                 //verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ){
@@ -84,54 +80,52 @@ fun HomePersonalScreen() {
                     ImageHomeComponent(
                         id = R.drawable.rectangle_1,
                         text = "Mis Tablas de ejercicios",
-                        width = 400,
+                        width = 350,
                         height = 150,
                         onClick = { /* Acción cuando se hace clic en el botón */ }
                     )
+                }
+                item {
+                    Spacer(modifier = Modifier.size(20.dp))
                 }
 
                 item {
                     LazyRow {
                         item {
                             Column (
-                                modifier = Modifier.padding(end = 10.dp)
+                                modifier = Modifier.padding(end = 0.dp, start = 0.dp)
                             ){
                                 ImageHomeComponent(
                                     id = R.drawable.rectangle_2,
                                     text = "Chats",
-                                    width = 180,
-                                    height = 180,
+                                    width = 150,
+                                    height = 150,
                                     onClick = { /* Acción cuando se hace clic en el botón */ }
 
                                 )
-
-                                    ImageHomeComponent(
-                                        id = R.drawable.rectangle_3,
-                                        text = "Mis compras",
-                                        width = 180,
-                                        height = 180,
-                                        onClick = { /* Acción cuando se hace clic en el botón */ }
-                                    )
+                                Spacer(modifier = Modifier.size(10.dp))
+                                ImageHomeComponent(
+                                    id = R.drawable.rectangle_3,
+                                    text = "Mis compras",
+                                    width = 150,
+                                    height = 150,
+                                    onClick = { /* Acción cuando se hace clic en el botón */ }
+                                )
                             }
                         }
-
+                        item{Spacer(modifier = Modifier.size(40.dp))}
                         item {
                             ImageHomeComponent(
                                 id = R.drawable.rectangle_4,
                                 text = "Profesionales",
-                                width = 180,
-                                height = 360,
+                                width = 150,
+                                height = 310,
                                 onClick = { /* Acción cuando se hace clic en el botón */ }
                             )
                         }
                     }
-
-
                 }
-
-
             }
-
 
             LazyColumn {
                 item {
