@@ -6,11 +6,17 @@
     <string name="CREATE_YOUR_ACCOUNT">Create your account</string>
     <string name="NICKNAME">NickName</string>
     <string name="YOUR_EMAIL">Your email\"</string>
-    <string name="PROFESIONAL">Profesional</string>
     <string name="SIGN_IN">Sign in</string>
     <string name="WELLCOME_BACK">Wellcome Back</string>
     <string name="LOGIN_TO_YOUR_ACCOUNT">Login to your account</string>
     <string name="REMERBERME">Remember me</string>
     <string name="FORGOT_PASSWORD">Forgot password?</string>
-    <string name="EMAIL">Email</string>
+    <string name="CREATE_RUTINES">Create rutines</string>
+    <string name="MY_INFORMS">My informs</string>
+    <string name="MY_CLIENTS">My clients</string>
+    <string name="HELLO">Hello</string>
+    <string name="AGENDA">Agenda</string>
+    <string name="MY_TABLES_EXERCISES">My table exercises</string>
+    <string name="MY_SHOPINGS">My Shopings</string>
+    <string name="MY_PROFESIONALS">My profesionals</string>
 </resources>

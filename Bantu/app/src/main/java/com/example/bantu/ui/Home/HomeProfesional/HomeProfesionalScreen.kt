@@ -1,13 +1,11 @@
-package com.example.bantu.ui.Home.HomeProfesional
+package com.example.bantu.ui.Home.HomePersonal
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,13 +13,26 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,30 +43,34 @@ import com.example.bantu.ui.Components.ImageHomeComponent
 @Composable
 fun HomeProfesionalScreen() {
 
-    var nameUser: String = "Inma"
+    Scaffold (
+        topBar = {ToolbarPro()},
+        content = { paddingValues ->
+            ContentPro(
+                modifier = Modifier.padding(paddingValues)
+            ) },
+        bottomBar = { BotomBarPro() }
+    )
 
+}
 
-    Box(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Column (
-
-        ){
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ToolbarPro(){
+    var nameUser = "Inma"
+    TopAppBar(
+        title = {
             Box(
                 modifier = Modifier
                     .background(colorResource(id = R.color.orange))
-                    .fillMaxWidth()
+                    .fillMaxWidth() // Aquí se aplica fillMaxWidth() directamente a la TopAppBar
                     .height(70.dp),
                 contentAlignment = Alignment.CenterStart
-
             ) {
                 Row(
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(0.dp),
                     verticalAlignment = Alignment.CenterVertically
-
-
                 ) {
-
                     Image(
                         modifier = Modifier.size(40.dp, 40.dp),
                         painter = painterResource(id = R.drawable.icon_user),
@@ -63,93 +78,102 @@ fun HomeProfesionalScreen() {
                     )
                     Spacer(modifier = Modifier.size(10.dp))
                     Text(
-                        text = "Hola,",
+                        text = "${stringResource(R.string.HELLO)},",
                         color = colorResource(id = R.color.black)
-
                     )
-                    Spacer(modifier = Modifier.size(10.dp))
+                    Spacer(modifier = Modifier.size(20.dp))
                     Text(
                         text = nameUser,
                         color = colorResource(id = R.color.black)
                     )
                 }
             }
+        },
+        modifier = Modifier.fillMaxWidth()
+    )
+}
 
-            LazyColumn (
-                modifier = Modifier.padding(10.dp,0.dp),
-                //verticalArrangement = Arrangement.Center,
+
+@Composable
+fun ContentPro(modifier: Modifier = Modifier) {
+    Box(
+        modifier = Modifier
+            .then(modifier)
+
+    ) {
+        Column {
+            LazyColumn(
+                modifier = Modifier.padding(20.dp, 10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-            ){
+            ) {
                 item {
                     ImageHomeComponent(
-                        id = R.drawable.rectangle_1,
-                        text = "Crear rutinas",
-                        width = 400,
+                        id = R.drawable.create_rutines,
+                        text = stringResource(R.string.CREATE_RUTINES),
+                        width = 350,
                         height = 150,
                         onClick = { /* Acción cuando se hace clic en el botón */ }
                     )
                 }
-
+                item {
+                    Spacer(modifier = Modifier.size(20.dp))
+                }
                 item {
                     LazyRow {
                         item {
-                            Column (
-                                modifier = Modifier.padding(end = 10.dp)
-                            ){
+                            Column(
+                                modifier = Modifier.padding(end = 0.dp, start = 0.dp)
+                            ) {
                                 ImageHomeComponent(
-                                    id = R.drawable.rectangle_2,
-                                    text = "Chats",
-                                    width = 180,
-                                    height = 180,
+                                    id = R.drawable.chats,
+                                    text = stringResource(R.string.CHATS),
+                                    width = 150,
+                                    height = 150,
                                     onClick = { /* Acción cuando se hace clic en el botón */ }
-
                                 )
-
+                                Spacer(modifier = Modifier.size(10.dp))
                                 ImageHomeComponent(
-                                    id = R.drawable.rectangle_3,
-                                    text = "Mis informes",
-                                    width = 180,
-                                    height = 180,
+                                    id = R.drawable.my_informs,
+                                    text = stringResource(R.string.MY_INFORMS),
+                                    width = 150,
+                                    height = 150,
                                     onClick = { /* Acción cuando se hace clic en el botón */ }
                                 )
                             }
                         }
-
+                        item { Spacer(modifier = Modifier.size(40.dp)) }
                         item {
                             ImageHomeComponent(
-                                id = R.drawable.rectangle_4,
-                                text = "Mis clientes",
-                                width = 180,
-                                height = 360,
+                                id = R.drawable.my_clients,
+                                text = stringResource(R.string.MY_CLIENTS),
+                                width = 150,
+                                height = 310,
                                 onClick = { /* Acción cuando se hace clic en el botón */ }
                             )
                         }
                     }
-
-
                 }
-
-
             }
-
-
             LazyColumn {
                 item {
                     Text(
                         modifier = Modifier.padding(20.dp, 5.dp),
-                        text = "Agenda",
+                        text = stringResource(R.string.AGENDA),
                         color = colorResource(id = R.color.white),
                         fontSize = 20.sp
                     )
                 }
-
                 item {
                     Box(
                         modifier = Modifier
                             .width(400.dp)
                             .height(100.dp)
                             .padding(20.dp, 5.dp)
-                            .clip(shape = androidx.compose.foundation.shape.RoundedCornerShape(20.dp))
+                            .clip(
+                                shape = androidx.compose.foundation.shape.RoundedCornerShape(
+                                    20.dp
+                                )
+                            )
                             .background(colorResource(id = R.color.orange))
                     ) {
                         Box(
@@ -157,9 +181,9 @@ fun HomeProfesionalScreen() {
                         ) {
                             Column {
                                 Spacer(modifier = Modifier.size(5.dp))
-                                Text("12:45 - 13:15")
-                                Text("Sesion de entrenamiento")
-                                Text("Raul Maroto")
+                                Text("12:45")
+                                Text("Entrenador personal")
+                                Text("Raul Gonzalez")
                             }
                         }
                     }
@@ -169,8 +193,95 @@ fun HomeProfesionalScreen() {
     }
 }
 
+@Composable
+fun BotomBarPro(
+
+) {
+    BottomAppBar {
+        NavigationBarItem(
+            selected = false,
+            onClick = {},
+            icon = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Icon(
+                        tint = Color.Black,
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home"
+                    )
+                    Text(
+                        text = "Home",
+                        color = Color.Black
+                    )
+                }
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = {},
+            icon = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Icon(
+                        tint = Color.Black,
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search"
+                    )
+                    Text(
+                        text = "Search",
+                        color = Color.Black
+                    )
+                }
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = {},
+            icon = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Icon(
+                        tint = Color.Black,
+                        imageVector = Icons.Default.Face,
+                        contentDescription = "Social"
+                    )
+                    Text(
+                        text = "Social",
+                        color = Color.Black
+                    )
+                }
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = {},
+            icon = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Icon(
+                        tint = Color.Black,
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = "Settings"
+                    )
+                    Text(
+                        text = "Settings",
+                        color = Color.Black
+                    )
+
+
+                }
+            }
+        )
+    }
+}
+
+
 @Preview
 @Composable
-private fun HomeProfesionalScreen_Preview() {
+private fun HomePersonalScreen_Preview() {
     HomeProfesionalScreen()
 }

@@ -1,16 +1,25 @@
 <resources>
     <string name="app_name">Bantu</string>
-    <string name="PASSWORD">password</string>
+    <string name="PASSWORD">contraseña</string>
     <string name="REGISTER">Registro</string>
     <string name="CREATE_YOUR_ACCOUNT">Crea tu cuenta</string>
     <string name="NICKNAME">NickName</string>
     <string name="YOUR_EMAIL">Tu email</string>
-    <string name="PROFESIONAL">Profesional</string>
+    <string name="PROFESIONAL" translatable="false">Profesional</string>
     <string name="SIGN_IN">Entrar</string>
     <string name="WELLCOME_BACK">Bienvenido</string>
     <string name="LOGIN_TO_YOUR_ACCOUNT">Conecta con tu cuenta</string>
     <string name="REMERBERME">Recuerdame</string>
     <string name="FORGOT_PASSWORD">Olvidaste password?</string>
-    <string name="EMAIL">Email</string>
+    <string name="EMAIL" translatable="false">Email</string>
+    <string name="CREATE_RUTINES">Crear rutinas</string>
+    <string name="CHATS" translatable="false">chats</string>
+    <string name="MY_INFORMS">Mis informes</string>
+    <string name="MY_CLIENTS">Mis clientes</string>
+    <string name="HELLO">Hola</string>
+    <string name="AGENDA">Agenda</string>
+    <string name="MY_TABLES_EXERCISES">Mi tabla de ejercicios</string>
+    <string name="MY_SHOPINGS">Mis compras</string>
+    <string name="MY_PROFESIONALS">Mis profesionales</string>
 
 </resources>
