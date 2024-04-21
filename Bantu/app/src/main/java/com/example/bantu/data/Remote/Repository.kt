@@ -36,6 +36,10 @@ class Repository @Inject constructor(
 
     }
 
+   suspend fun clearPreferences(){
+       AppClass.prefRepository.clearPreferences()
+   }
+
 
 }
 

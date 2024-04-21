@@ -38,10 +38,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bantu.R
 import com.example.bantu.ui.Components.ImageHomeComponent
+import com.example.bantu.ui.Home.HomeProfesional.HomeProfesionalViewModel
 
 
 @Composable
-fun HomeProfesionalScreen() {
+fun HomeProfesionalScreen(homeProfesionalViewModel: HomeProfesionalViewModel) {
 
     Scaffold (
         topBar = {ToolbarPro()},
@@ -283,5 +284,5 @@ fun BotomBarPro(
 @Preview
 @Composable
 private fun HomePersonalScreen_Preview() {
-    HomeProfesionalScreen()
+    //HomeProfesionalScreen(homeProfesionalViewModel)
 }

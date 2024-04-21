@@ -16,11 +16,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.bantu.AppClass
+import com.example.bantu.R
 import com.example.bantu.ui.theme.BantuTheme
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.bantu.di.ACCESS_TOKEN
@@ -34,16 +37,16 @@ import com.example.bantu.ui.Login.RegisterView.RegisterViewScreen
 
 @AndroidEntryPoint
 class LoginActivity : ComponentActivity() {
-
+    val loginViewModel by viewModels<LoginViewModel> ()
+    val registerViewModel by viewModels<RegisterViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val loginViewModel by viewModels<LoginViewModel> ()
-        val registerViewModel by viewModels<RegisterViewModel>()
+
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_dark)) {
                     val navController = rememberNavController()
 
                     NavHost(navController = navController, startDestination = "Login") {
@@ -106,3 +109,4 @@ fun LoginScreen(loginViewModel: LoginViewModel){
         }
     }
 }
+

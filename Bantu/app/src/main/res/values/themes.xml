@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Bantu" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Estilo base -->
+    <style name="Theme.Bantu" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/backgroud_light</item>
+    </style>
+
+    <!-- Estilo para el tema oscuro -->
+    <style name="Theme.Bantu.Dark" parent="Theme.Bantu">
+        <item name="android:windowBackground">@color/backgroud_dark</item>
+    </style>
+
 </resources>

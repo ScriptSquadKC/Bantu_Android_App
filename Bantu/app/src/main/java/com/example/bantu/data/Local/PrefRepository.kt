@@ -2,6 +2,7 @@ package com.example.bantu.data.Local
 
 import android.content.Context
 
+
 class PrefRepository(val context: Context) {
 
     val SHARED_NAME = "Mydtb"
@@ -16,6 +17,10 @@ class PrefRepository(val context: Context) {
 
     fun loadTokenPreferences(name: String): String {
         return storage.getString(name, "")!!
+    }
+
+    fun clearPreferences() {
+        storage.edit().clear().apply()
     }
 
 

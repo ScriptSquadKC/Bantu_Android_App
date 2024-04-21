@@ -14,11 +14,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
@@ -36,15 +39,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.bantu.R
 import com.example.bantu.ui.Components.ImageHomeComponent
 
 
 @Composable
-fun HomePersonalScreen() {
+fun HomePersonalScreen(homePersonalViewModel: HomePersonalViewModel) {
 
     Scaffold (
-        topBar = {Toolbar()},
+        topBar = {Toolbar(homePersonalViewModel)},
         content = { paddingValues ->
             Content(
                 modifier = Modifier.padding(paddingValues)
@@ -56,38 +60,73 @@ fun HomePersonalScreen() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Toolbar(){
+fun Toolbar(homePersonalViewModel: HomePersonalViewModel) {
     var nameUser: String = "Inma"
     TopAppBar(
         title = {
-            Box(
-                modifier = Modifier
-                    .background(colorResource(id = R.color.orange))
-                    .fillMaxWidth() // Aquí se aplica fillMaxWidth() directamente a la TopAppBar
-                    .height(70.dp),
-                contentAlignment = Alignment.CenterStart
-            ) {
-                Row(
-                    modifier = Modifier.padding(0.dp),
-                    verticalAlignment = Alignment.CenterVertically
+
+            Row {
+                Box(
+                    modifier = Modifier
+                        .background(colorResource(id = R.color.orange))
+                        .height(70.dp)
+                        .width(300.dp),
+                    contentAlignment = Alignment.CenterStart
                 ) {
-                    Image(
-                        modifier = Modifier.size(40.dp, 40.dp),
-                        painter = painterResource(id = R.drawable.icon_user),
-                        contentDescription = "icon user"
-                    )
-                    Spacer(modifier = Modifier.size(10.dp))
-                    Text(
-                        text = "${stringResource(R.string.HELLO)},",
-                        color = colorResource(id = R.color.black)
-                    )
-                    Spacer(modifier = Modifier.size(20.dp))
-                    Text(
-                        text = nameUser,
-                        color = colorResource(id = R.color.black)
-                    )
+                    Row(
+                        modifier = Modifier.padding(0.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Image(
+                            modifier = Modifier.size(40.dp, 40.dp),
+                            painter = painterResource(id = R.drawable.icon_user),
+                            contentDescription = "icon user"
+                        )
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Text(
+                            text = "${stringResource(R.string.HELLO)},",
+                            color = colorResource(id = R.color.black)
+                        )
+                        Spacer(modifier = Modifier.size(20.dp))
+                        Text(
+                            text = nameUser,
+                            color = colorResource(id = R.color.black)
+                        )
+
+                    }
                 }
+
+                Box(
+                    modifier = Modifier
+                        .background(colorResource(id = R.color.orange))
+                        .height(70.dp),
+                    contentAlignment = Alignment.Center
+
+
+                ){
+                    Button(
+                        onClick = {
+                            homePersonalViewModel.clearPreferences()
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.orange)
+                        ),
+                        
+                    ) {
+
+                        Icon(
+                            tint = Color.Black,
+                            imageVector = Icons.Default.ExitToApp,
+                            contentDescription = "Logout"
+                        )
+
+                    }
+                }
+
+
             }
+
         },
         modifier = Modifier.fillMaxWidth()
     )
@@ -197,7 +236,9 @@ fun Content(modifier: Modifier = Modifier) {
 fun BotomBar(
 
 ) {
-    BottomAppBar() {
+    BottomAppBar(
+        containerColor = colorResource(id = R.color.botomBar)
+    ) {
         NavigationBarItem(
             selected = false,
             onClick = {},
@@ -283,5 +324,5 @@ fun BotomBar(
 @Preview
 @Composable
 private fun HomePersonalScreen_Preview() {
-    HomePersonalScreen()
+    //HomePersonalScreen()
 }
