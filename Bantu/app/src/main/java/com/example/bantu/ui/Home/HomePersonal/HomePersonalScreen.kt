@@ -39,16 +39,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.bantu.R
 import com.example.bantu.ui.Components.ImageHomeComponent
+import com.example.bantu.ui.Home.HomeViewModel
 
 
 @Composable
-fun HomePersonalScreen(homePersonalViewModel: HomePersonalViewModel) {
+fun HomePersonalScreen(homeViewModel: HomeViewModel) {
 
     Scaffold (
-        topBar = {Toolbar(homePersonalViewModel)},
+        topBar = {Toolbar(homeViewModel)},
         content = { paddingValues ->
             Content(
                 modifier = Modifier.padding(paddingValues)
@@ -60,7 +60,7 @@ fun HomePersonalScreen(homePersonalViewModel: HomePersonalViewModel) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Toolbar(homePersonalViewModel: HomePersonalViewModel) {
+fun Toolbar(homeViewModel: HomeViewModel) {
     var nameUser: String = "Inma"
     TopAppBar(
         title = {
@@ -107,7 +107,7 @@ fun Toolbar(homePersonalViewModel: HomePersonalViewModel) {
                 ){
                     Button(
                         onClick = {
-                            homePersonalViewModel.clearPreferences()
+                            homeViewModel.clearPreferences()
                         },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = colorResource(id = R.color.orange)

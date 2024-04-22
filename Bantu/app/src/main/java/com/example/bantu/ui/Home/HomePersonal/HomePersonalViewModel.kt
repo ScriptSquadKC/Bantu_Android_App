@@ -14,11 +14,5 @@ class HomePersonalViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    fun clearPreferences() {
-        viewModelScope.launch {
-            repository.clearPreferences()
-        }
-    }
-
 
 }

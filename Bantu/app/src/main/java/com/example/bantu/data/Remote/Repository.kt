@@ -1,6 +1,7 @@
 package com.example.bantu.data.Remote
 
 import com.example.bantu.AppClass
+import com.example.bantu.Domain.Model.User
 import com.example.bantu.di.ACCESS_TOKEN
 import com.example.bantu.di.ID_USER
 import com.example.bantu.di.REFRESH_TOKEN
@@ -35,6 +36,12 @@ class Repository @Inject constructor(
         remoteDataSource.launchRegister(nickname,email, password, profesional)
 
     }
+
+    suspend fun getUserById(userId: String, token: String): User {
+        val response = remoteDataSource.getUserById(userId, token)
+        return response
+    }
+
 
    suspend fun clearPreferences(){
        AppClass.prefRepository.clearPreferences()

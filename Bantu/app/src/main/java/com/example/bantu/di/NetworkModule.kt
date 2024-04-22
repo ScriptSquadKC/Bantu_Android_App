@@ -1,6 +1,7 @@
 package com.example.bantu.di
 
 import android.util.Log
+import com.example.bantu.AppClass.Companion.prefRepository
 import com.example.bantu.data.Remote.BantuApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -20,25 +21,34 @@ object NetworkModule {
     private const val BASE_URL = "https://bantubackend-dev-tnqr.2.ie-1.fl0.io"
 
     @Provides
-    @Singleton
-    fun provideMoshi(): Moshi {
+    fun providesOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder().addInterceptor { chain ->
+            val originalRequest = chain.request()
+            val newRequest =
+                originalRequest.newBuilder().addHeader("Authorization", "Bearer ${prefRepository.loadTokenPreferences(ACCESS_TOKEN)}").build()
+            chain.proceed(newRequest)
+
+        }.build()
+    }
+    @Provides
+    fun providesMoshi(): Moshi {
         return Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())
             .build()
     }
 
     @Provides
-    @Singleton
-    fun provideRetrofit(moshi: Moshi): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+    fun providesRetrofit(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit {
+        return Retrofit.Builder().client(okHttpClient).baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
+
     }
 
     @Provides
     fun provideBantuApi(retrofit: Retrofit): BantuApi {
-        val retorno = retrofit.create(BantuApi::class.java)
-        return retorno
+        return retrofit.create(BantuApi::class.java)
     }
+
+
 }

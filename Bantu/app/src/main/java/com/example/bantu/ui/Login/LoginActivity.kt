@@ -65,7 +65,7 @@ class LoginActivity : ComponentActivity() {
 
                         }
 
-                        composable("Register") {
+                        composable("RegisterRoute") {
 
                             RegisterViewScreen(registerViewModel)
 

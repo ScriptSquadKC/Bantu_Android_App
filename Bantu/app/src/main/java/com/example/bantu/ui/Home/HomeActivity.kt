@@ -21,20 +21,25 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity: ComponentActivity() {
     val homePersonalViewModel by viewModels<HomePersonalViewModel> ()
     val homeProfesionalViewModel by viewModels<HomeProfesionalViewModel> ()
+    val homeViewModel by viewModels<HomeViewModel> ()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        homeViewModel.getUserById()
 
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_dark)) {
 
-                    HomePersonalScreen(homePersonalViewModel)
-                    //HomeProfesionalScreen(homeProfesionalViewModel)
+                    HomeScreen(homeViewModel)
 
                 }
             }
         }
     }
+
+
 }

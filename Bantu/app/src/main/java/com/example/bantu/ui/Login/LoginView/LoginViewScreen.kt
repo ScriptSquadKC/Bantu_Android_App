@@ -189,7 +189,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                     Button(
                         onClick = {
                                   // IR AL REGISTER_SCREEN
-                        navController.navigate("Register")
+                        navController.navigate("RegisterRoute")
 
                                   },
                         colors = ButtonDefaults.buttonColors(
