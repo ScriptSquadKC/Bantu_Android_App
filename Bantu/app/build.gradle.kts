@@ -82,6 +82,9 @@ dependencies {
     // Navigation Compose
     implementation ("androidx.navigation:navigation-compose:2.5.3")
 
+    // Async Image
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

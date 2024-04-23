@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">https://bantubackend-dev-tnqr.2.ie-1.fl0.io</domain>
+        <domain includeSubdomains="true">http://90.163.132.130/</domain>
     </domain-config>
 </network-security-config>
