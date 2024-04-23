@@ -18,8 +18,21 @@ fun HomeScreen (homeViewModel: HomeViewModel){
     val state by homeViewModel.state.collectAsState()
     when(state){
         is HomeState.Success ->{
-            HomePersonalScreen(homeViewModel)
-        }
+
+            var user = (state as HomeState.Success).user
+            Toast.makeText(LocalContext.current, "Success: ${user}", Toast.LENGTH_SHORT).show()
+            Log.w("SUCCESS", user.toString())
+
+            var isProfesional = user.professional?.nif.toString()
+
+            if(isProfesional.isEmpty()){
+                HomePersonalScreen(homeViewModel)
+            }else{
+                HomeProfesionalScreen(homeViewModel)
+            }
+
+            }
+
         is  HomeState.Error -> {
 
             var error = (state as HomeState.Error).error

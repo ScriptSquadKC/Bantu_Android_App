@@ -14,12 +14,10 @@ import retrofit2.http.Path
 
 interface BantuApi {
 
-    @FormUrlEncoded
+
     @POST("/api/auth/signin")
     suspend fun login(
-        @Field("email") email: String,
-        @Field("password") password: String,
-        @Header("Authorization") credentials: String
+
     ): AuthResponse
 
     @FormUrlEncoded
@@ -33,9 +31,7 @@ interface BantuApi {
 
     @GET("/api/users/{id}")
     suspend fun getUser(
-        @Path("id") id:String,
-        @Header("Authorization\", \"Bearer \" + token") token: String
-
+        @Path("id") id: String,
     ): User
 
 

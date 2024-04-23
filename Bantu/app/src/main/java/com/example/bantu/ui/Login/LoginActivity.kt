@@ -3,6 +3,7 @@ package com.example.bantu.ui.Login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -105,6 +106,7 @@ fun LoginScreen(loginViewModel: LoginViewModel){
             val error = (state as LoginState.Error).error
             //Text("Error: $error")
             Toast.makeText(LocalContext.current, "Error: $error", Toast.LENGTH_SHORT).show()
+            Log.w("error", error)
 
         }
     }

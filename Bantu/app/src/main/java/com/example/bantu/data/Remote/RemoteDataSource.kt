@@ -1,5 +1,6 @@
 package com.example.bantu.data.Remote
 
+import android.util.Log
 import com.example.bantu.Domain.Model.AuthResponse
 import com.example.bantu.Domain.Model.User
 import com.example.bantu.Domain.Model.UserRequest
@@ -10,7 +11,7 @@ class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
 
         val credentials = okhttp3.Credentials.basic(emailField, passWord)
 
-        val response = bantuApi.login(emailField, passWord, credentials)
+        val response = bantuApi.login()
         return response
     }
 
@@ -24,10 +25,9 @@ class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
     }
 
     suspend fun getUserById(userId: String, token: String): User {
-
-        val response = bantuApi.getUser(userId,token)
-
-        return response
+        val authToken = "Bearer $token"
+        Log.w("ERROR token",authToken)
+        return bantuApi.getUser(userId)
     }
 
 }
