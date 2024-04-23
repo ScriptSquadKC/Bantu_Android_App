@@ -10,8 +10,9 @@ class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
     suspend fun launchLogin(emailField: String, passWord: String): AuthResponse {
 
         val credentials = okhttp3.Credentials.basic(emailField, passWord)
+        Log.w("ERROR credentiasl", credentials)
 
-        val response = bantuApi.login()
+        val response = bantuApi.login(emailField, passWord, credentials)
         return response
     }
 
@@ -24,9 +25,7 @@ class RemoteDataSource @Inject constructor(private val bantuApi: BantuApi) {
         bantuApi.register(nickname, email, password, profesional)
     }
 
-    suspend fun getUserById(userId: String, token: String): User {
-        val authToken = "Bearer $token"
-        Log.w("ERROR token",authToken)
+    suspend fun getUserById(userId: String): User {
         return bantuApi.getUser(userId)
     }
 

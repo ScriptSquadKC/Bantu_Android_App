@@ -1,6 +1,7 @@
 package com.example.bantu.ui.Components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -56,7 +57,11 @@ fun ImageHomeComponent(
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 20.dp),
+                .padding(bottom = 20.dp)
+                .background(
+                    color = Color.Black.copy(alpha = 0.5f),
+
+                    ),
 
         )
     }

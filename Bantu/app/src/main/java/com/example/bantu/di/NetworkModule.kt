@@ -9,6 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -20,16 +21,29 @@ object NetworkModule {
 
     private const val BASE_URL = "https://bantubackend-dev-tnqr.2.ie-1.fl0.io"
 
+
     @Provides
     fun providesOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().addInterceptor { chain ->
-            val originalRequest = chain.request()
-            val newRequest =
-                originalRequest.newBuilder().addHeader("Authorization", "Bearer ${prefRepository.loadTokenPreferences(ACCESS_TOKEN)}").build()
-            chain.proceed(newRequest)
+        val authToken = prefRepository.loadTokenPreferences(ACCESS_TOKEN)
 
-        }.build()
+        //Si no hay token en el preference, ejecuto el otro metodo de autenticacion.
+        return if(authToken.isNotEmpty()) {
+            OkHttpClient.Builder().addInterceptor { chain ->
+                val originalRequest = chain.request()
+                val newRequest =
+                    originalRequest.newBuilder().addHeader("Authorization", "Bearer $authToken").build()
+                chain.proceed(newRequest)
+            }.build()
+        } else {
+            OkHttpClient.Builder().addInterceptor { chain ->
+                val originalRequest = chain.request()
+                val newRequest =
+                    originalRequest.newBuilder().build()
+                chain.proceed(newRequest)
+            }.build()
+        }
     }
+
     @Provides
     fun providesMoshi(): Moshi {
         return Moshi.Builder()

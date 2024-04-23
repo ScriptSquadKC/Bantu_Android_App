@@ -38,7 +38,7 @@ class Repository @Inject constructor(
     }
 
     suspend fun getUserById(userId: String, token: String): User {
-        val response = remoteDataSource.getUserById(userId, token)
+        val response = remoteDataSource.getUserById(userId)
         return response
     }
 

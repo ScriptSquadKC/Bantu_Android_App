@@ -37,10 +37,7 @@ class HomeViewModel @Inject constructor(
 
             val user = runCatching {
                 withContext(Dispatchers.IO) {
-                    //repository.getUserById(AppClass.prefRepository.loadTokenPreferences(ID_USER),AppClass.prefRepository.loadTokenPreferences(ACCESS_TOKEN))
-                    repository.getUserById("3","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzE1MjY0NDgyLjgxNTIwMywidHlwZSI6ImFjZXNzIn0.0TD4k0feWDmt8C0RsiT2rwyp_V4DqCmMQKB8V35a-_c")
-
-                    //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzE1MjY0NDgyLjgxNTIwMywidHlwZSI6ImFjZXNzIn0.0TD4k0feWDmt8C0RsiT2rwyp_V4DqCmMQKB8V35a-_c
+                    repository.getUserById(AppClass.prefRepository.loadTokenPreferences(ID_USER),AppClass.prefRepository.loadTokenPreferences(ACCESS_TOKEN))
                 }
             }
             if (user.isSuccess) {
