@@ -1,57 +1,46 @@
 package com.example.bantu.ui.Home.HomePersonal
 
-import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
-import coil.request.ImageRequest
 import com.example.bantu.R
+<<<<<<< Updated upstream
 import com.example.bantu.data.Remote.Toolbar
+=======
+import com.example.bantu.ui.Components.BotomBar
+>>>>>>> Stashed changes
 import com.example.bantu.ui.Components.ImageHomeComponent
+import com.example.bantu.ui.Components.Toolbar
 import com.example.bantu.ui.Home.HomeViewModel
 
 
 @Composable
-fun HomePersonalScreen(homeViewModel: HomeViewModel, name: String?, photo: String?) {
+fun HomePersonalScreen(
+    homeViewModel: HomeViewModel,
+    name: String?,
+    photo: String?
+) {
 
+<<<<<<< Updated upstream
     Scaffold (
         topBar = {
             Toolbar(
@@ -59,23 +48,38 @@ fun HomePersonalScreen(homeViewModel: HomeViewModel, name: String?, photo: Strin
                 name,
                 photo
             )},
+=======
+    Scaffold(
+        topBar = {
+            Toolbar(
+                homeViewModel,
+                name,
+                photo
+            )
+        },
+>>>>>>> Stashed changes
         content = { paddingValues ->
             Content(
                 modifier = Modifier.padding(paddingValues)
-        ) },
+            )
+        },
         bottomBar = { BotomBar() }
     )
 
 }
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 @Composable
 fun Content(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier
             .then(modifier)
+            .background(colorResource(id = R.color.backgroud_light))
 
     ) {
         Column() {
@@ -131,20 +135,21 @@ fun Content(modifier: Modifier = Modifier) {
                     }
                 }
             }
+            Text(
+                modifier = Modifier.padding(20.dp, 5.dp),
+                text = "Agenda",
+                color = colorResource(id = R.color.black),
+                fontSize = 20.sp
+            )
+
+
             LazyColumn {
-                item {
-                    Text(
-                        modifier = Modifier.padding(20.dp, 5.dp),
-                        text = "Agenda",
-                        color = colorResource(id = R.color.white),
-                        fontSize = 20.sp
-                    )
-                }
+
                 item {
                     Box(
                         modifier = Modifier
                             .width(400.dp)
-                            .height(100.dp)
+                            .height(110.dp)
                             .padding(20.dp, 5.dp)
                             .clip(
                                 shape = androidx.compose.foundation.shape.RoundedCornerShape(
@@ -164,97 +169,32 @@ fun Content(modifier: Modifier = Modifier) {
                             }
                         }
                     }
+                    Box(
+                        modifier = Modifier
+                            .width(400.dp)
+                            .height(80.dp)
+                            .padding(20.dp, 5.dp)
+                            .clip(
+                                shape = androidx.compose.foundation.shape.RoundedCornerShape(
+                                    20.dp
+                                )
+                            )
+                            .background(colorResource(id = R.color.orange))
+                    ) {
+                        Box(
+                            modifier = Modifier.padding(15.dp, 5.dp)
+                        ) {
+                            Column {
+                                Spacer(modifier = Modifier.size(5.dp))
+                                Text("09:30")
+                                Text("Nutritionista personal")
+                                Text("Mariano Rajoy")
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun BotomBar(
-
-) {
-    BottomAppBar(
-        containerColor = colorResource(id = R.color.botomBar)
-    ) {
-        NavigationBarItem(
-            selected = false,
-            onClick = {},
-            icon = {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Icon(
-                        tint = Color.Black,
-                        imageVector = Icons.Default.Home,
-                        contentDescription = "Home"
-                    )
-                    Text(
-                        text = "Home",
-                        color = Color.Black
-                    )
-                }
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = {},
-            icon = {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Icon(
-                        tint = Color.Black,
-                        imageVector = Icons.Default.Search,
-                        contentDescription = "Search"
-                    )
-                    Text(
-                        text = "Search",
-                        color = Color.Black
-                    )
-                }
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = {},
-            icon = {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Icon(
-                        tint = Color.Black,
-                        imageVector = Icons.Default.Face,
-                        contentDescription = "Social"
-                    )
-                    Text(
-                        text = "Social",
-                        color = Color.Black
-                    )
-                }
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = {},
-            icon = {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Icon(
-                        tint = Color.Black,
-                        imageVector = Icons.Default.Settings,
-                        contentDescription = "Settings"
-                    )
-                    Text(
-                        text = "Settings",
-                        color = Color.Black
-                    )
-
-
-                }
-            }
-        )
     }
 }
 
@@ -262,5 +202,5 @@ fun BotomBar(
 @Preview
 @Composable
 private fun HomePersonalScreen_Preview() {
-    //HomePersonalScreen()
+   //HomePersonalScreen("dani", "photo")
 }

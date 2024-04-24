@@ -47,7 +47,7 @@ class LoginActivity : ComponentActivity() {
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_dark)) {
+                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_light)) {
                     val navController = rememberNavController()
 
                     NavHost(navController = navController, startDestination = "Login") {

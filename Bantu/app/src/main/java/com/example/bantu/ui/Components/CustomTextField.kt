@@ -1,6 +1,7 @@
 package com.example.bantu.ui.Components
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -40,6 +45,8 @@ fun CustomTextFieldReg(
     onValueChange: (String) -> Unit,
     fontSize: Int
 ) {
+    var passwordVisible by remember { mutableStateOf(false) }
+
     TextField(
         value = value,
         onValueChange = { onValueChange(it) },
@@ -51,10 +58,9 @@ fun CustomTextFieldReg(
                 shape = CircleShape,
             ),
         colors = TextFieldDefaults.textFieldColors(
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-
-            ),
+            focusedIndicatorColor = colorResource(id = R.color.backgroud_light),
+            unfocusedIndicatorColor = colorResource(id = R.color.backgroud_light),
+        ),
         label = {
             Text(
                 text = stringResource(placeholder),
@@ -62,23 +68,25 @@ fun CustomTextFieldReg(
             )
         },
         leadingIcon = {
-
-                Icon(imageVector = icon, contentDescription = "Custom icon")
-
+            Icon(imageVector = icon, contentDescription = "Custom icon")
         },
         trailingIcon = {
-            if (isPassword) Icon(
-                imageVector = Icons.Filled.Info,
-                contentDescription = "Custom icon"
-            )
+            if (isPassword) {
+                Icon(
+                    imageVector = Icons.Filled.Info,
+                    contentDescription = "Custom icon",
+                    modifier = Modifier.clickable { passwordVisible = !passwordVisible } // Cambiar el estado al hacer clic
+                )
+            }
         },
         keyboardOptions = KeyboardOptions(
-            keyboardType = if (isPassword) KeyboardType.Password else KeyboardType.Text,
+            keyboardType = if (isPassword && !passwordVisible) KeyboardType.Password else KeyboardType.Text,
             capitalization = KeyboardCapitalization.None
         ),
-        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None
+        visualTransformation = if (isPassword && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None
     )
 }
+
 
 @Preview(showBackground = true)
 @Composable

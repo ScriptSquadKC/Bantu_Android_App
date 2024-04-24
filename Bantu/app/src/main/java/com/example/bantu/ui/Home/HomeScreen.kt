@@ -22,9 +22,17 @@ fun HomeScreen(homeViewModel: HomeViewModel) {
             Log.w("SUCCESS", user.toString())
 
             if (user.professional == null) {
-                HomePersonalScreen(homeViewModel, user.name, user.photo)
+                HomePersonalScreen(
+                    homeViewModel,
+                    user.name,
+                    user.photo
+                )
             } else {
-                HomeProfesionalScreen(homeViewModel)
+                HomeProfesionalScreen(
+                    homeViewModel,
+                    user.name,
+                    user.photo
+                )
             }
 
         }
