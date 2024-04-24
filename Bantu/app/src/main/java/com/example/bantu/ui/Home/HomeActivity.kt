@@ -19,10 +19,10 @@ import com.example.bantu.ui.theme.BantuTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity: ComponentActivity() {
-    val homePersonalViewModel by viewModels<HomePersonalViewModel> ()
-    val homeProfesionalViewModel by viewModels<HomeProfesionalViewModel> ()
-    val homeViewModel by viewModels<HomeViewModel> ()
+class HomeActivity : ComponentActivity() {
+    val homePersonalViewModel by viewModels<HomePersonalViewModel>()
+    val homeProfesionalViewModel by viewModels<HomeProfesionalViewModel>()
+    val homeViewModel by viewModels<HomeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,19 +33,15 @@ class HomeActivity: ComponentActivity() {
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
-<<<<<<< Updated upstream
-                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_light)) {
-=======
-                Surface(
-                ) {
->>>>>>> Stashed changes
 
+                Surface {
                     HomeScreen(homeViewModel)
-
                 }
+
+
             }
         }
     }
-
-
 }
+
+

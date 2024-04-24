@@ -19,15 +19,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextDirection.Companion.Content
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bantu.R
-<<<<<<< Updated upstream
-import com.example.bantu.data.Remote.Toolbar
-=======
 import com.example.bantu.ui.Components.BotomBar
->>>>>>> Stashed changes
 import com.example.bantu.ui.Components.ImageHomeComponent
 import com.example.bantu.ui.Components.Toolbar
 import com.example.bantu.ui.Home.HomeViewModel
@@ -40,15 +37,6 @@ fun HomePersonalScreen(
     photo: String?
 ) {
 
-<<<<<<< Updated upstream
-    Scaffold (
-        topBar = {
-            Toolbar(
-                //homeViewModel,
-                name,
-                photo
-            )},
-=======
     Scaffold(
         topBar = {
             Toolbar(
@@ -57,7 +45,7 @@ fun HomePersonalScreen(
                 photo
             )
         },
->>>>>>> Stashed changes
+
         content = { paddingValues ->
             Content(
                 modifier = Modifier.padding(paddingValues)
@@ -65,15 +53,8 @@ fun HomePersonalScreen(
         },
         bottomBar = { BotomBar() }
     )
-
 }
 
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 @Composable
 fun Content(modifier: Modifier = Modifier) {
     Box(
@@ -198,9 +179,3 @@ fun Content(modifier: Modifier = Modifier) {
     }
 }
 
-
-@Preview
-@Composable
-private fun HomePersonalScreen_Preview() {
-   //HomePersonalScreen("dani", "photo")
-}

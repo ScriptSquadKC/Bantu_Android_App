@@ -71,8 +71,6 @@ class LoginActivity : ComponentActivity() {
                             RegisterViewScreen(registerViewModel)
 
                         }
-
-
                     }
 
 
@@ -104,11 +102,36 @@ fun LoginScreen(loginViewModel: LoginViewModel){
 
         is LoginState.Error -> {
             val error = (state as LoginState.Error).error
-            //Text("Error: $error")
-            Toast.makeText(LocalContext.current, "Error: $error", Toast.LENGTH_SHORT).show()
-            Log.w("error", error)
 
+            when {
+                error == "HTTP 401 " -> {
+                    // Mostrar un Toast indicando que el usuario o la contraseña son incorrectos
+                    Toast.makeText(LocalContext.current, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                    Log.w("error", error)
+                }
+                error == "HTTP 404 " -> {
+                    // Mostrar un Toast indicando que la página no se encontró
+                    Toast.makeText(LocalContext.current, "Página no encontrada", Toast.LENGTH_SHORT).show()
+                    Log.w("error", error)
+                }
+                error == "HTTP 500 " -> {
+                    // Mostrar un Toast indicando un error interno del servidor
+                    Toast.makeText(LocalContext.current, "Error interno del servidor", Toast.LENGTH_SHORT).show()
+                    Log.w("error", error)
+                }
+                error == "Network Error" -> {
+                    // Mostrar un Toast indicando un error de red
+                    Toast.makeText(LocalContext.current, "Error de red", Toast.LENGTH_SHORT).show()
+                    Log.w("error", error)
+                }
+                // Agregar más casos de error según sea necesario
+                else -> {
+                    // Manejar otros casos de error
+                    Log.w("error", "Error desconocido: $error")
+                }
+            }
         }
     }
+
 }
 

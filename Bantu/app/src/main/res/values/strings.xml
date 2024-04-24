@@ -13,7 +13,7 @@
     <string name="FORGOT_PASSWORD">Olvidaste password?</string>
     <string name="EMAIL" translatable="false">Email</string>
     <string name="CREATE_RUTINES">Crear rutinas</string>
-    <string name="CHATS" translatable="false">chats</string>
+    <string name="CHATS" translatable="false">Chats</string>
     <string name="MY_INFORMS">Mis informes</string>
     <string name="MY_CLIENTS">Mis clientes</string>
     <string name="HELLO">Hola</string>
