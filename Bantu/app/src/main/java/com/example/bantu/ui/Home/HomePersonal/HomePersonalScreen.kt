@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.bantu.R
+import com.example.bantu.data.Remote.Toolbar
 import com.example.bantu.ui.Components.ImageHomeComponent
 import com.example.bantu.ui.Home.HomeViewModel
 
@@ -52,7 +53,12 @@ import com.example.bantu.ui.Home.HomeViewModel
 fun HomePersonalScreen(homeViewModel: HomeViewModel, name: String?, photo: String?) {
 
     Scaffold (
-        topBar = {Toolbar(homeViewModel, name, photo)},
+        topBar = {
+            Toolbar(
+                //homeViewModel,
+                name,
+                photo
+            )},
         content = { paddingValues ->
             Content(
                 modifier = Modifier.padding(paddingValues)
@@ -62,101 +68,7 @@ fun HomePersonalScreen(homeViewModel: HomeViewModel, name: String?, photo: Strin
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun Toolbar(homeViewModel: HomeViewModel, name: String?, photo: String?) {
-    val nameUser: String = name ?: "Usuario"
-    //val photoUser = photo ?: "https://image.pngaaa.com/553/2189553-middle.png"
-    //val photoUser = photo ?: "http://90.163.132.130:8090/bantu/user03.png,"
-    val photoUser = "https://image.pngaaa.com/553/2189553-middle.png"
-    //Log.w("PHOTO", photoUser)
 
-    TopAppBar(
-        title = {
-
-            Row {
-                Box(
-                    modifier = Modifier
-                        .background(colorResource(id = R.color.orange))
-                        .height(70.dp)
-                        .width(300.dp),
-                    contentAlignment = Alignment.CenterStart
-                ) {
-                    Row(
-                        modifier = Modifier.padding(0.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Spacer(modifier = Modifier.size(10.dp))
-                        Image(
-                            painter = rememberAsyncImagePainter(
-                                ImageRequest.Builder(LocalContext.current)
-                                    .data(data = photoUser)
-                                    .apply(block = fun ImageRequest.Builder.() {
-                                        crossfade(true)
-                                        placeholder(R.drawable.icon_user)
-                                    }).build()
-                            ),
-                            contentDescription = "photouser",
-                            modifier = Modifier
-                                .background(Color.Black)
-                                .size(40.dp, 40.dp)
-                                .fillMaxWidth(),
-
-                            contentScale = ContentScale.Fit,
-                        )
-
-                        //------
-
-                        Spacer(modifier = Modifier.size(10.dp))
-                        Text(
-                            text = "${stringResource(R.string.HELLO)},",
-                            color = colorResource(id = R.color.black)
-                        )
-                        Spacer(modifier = Modifier.size(20.dp))
-
-                            Text(
-                                text = nameUser,
-                                color = colorResource(id = R.color.black)
-                            )
-
-
-                    }
-                }
-
-                Box(
-                    modifier = Modifier
-                        .background(colorResource(id = R.color.orange))
-                        .height(70.dp),
-                    contentAlignment = Alignment.Center
-
-
-                ){
-                    Button(
-                        onClick = {
-                            homeViewModel.clearPreferences()
-                        },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = colorResource(id = R.color.orange)
-                        ),
-                        
-                    ) {
-
-                        Icon(
-                            tint = Color.Black,
-                            imageVector = Icons.Default.ExitToApp,
-                            contentDescription = "Logout"
-                        )
-
-                    }
-                }
-
-
-            }
-
-        },
-        modifier = Modifier.fillMaxWidth()
-    )
-}
 
 
 @Composable

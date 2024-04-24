@@ -32,7 +32,7 @@ class HomeActivity: ComponentActivity() {
         setContent {
             BantuTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_dark)) {
+                Surface(modifier = Modifier.fillMaxSize(), color = colorResource(id = R.color.backgroud_light)) {
 
                     HomeScreen(homeViewModel)
 
