@@ -127,7 +127,7 @@ fun Content(modifier: Modifier = Modifier) {
                     Box(
                         modifier = Modifier
                             .width(400.dp)
-                            .height(110.dp)
+                            .height(210.dp)
                             .padding(20.dp, 5.dp)
                             .clip(
                                 shape = androidx.compose.foundation.shape.RoundedCornerShape(

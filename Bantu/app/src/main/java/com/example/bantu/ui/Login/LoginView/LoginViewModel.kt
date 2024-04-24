@@ -27,15 +27,15 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { LoginState.Idle }
 
-            val token = runCatching {
+            val login = runCatching {
                 withContext(Dispatchers.IO) {
                     repository.launchLogin(userName, password)
                 }
             }
-            if (token.isSuccess) {
-                _state.update { LoginState.Success(token.getOrThrow()) }
+            if (login.isSuccess) {
+                _state.update { LoginState.Success(login.getOrThrow()) }
             } else {
-                _state.update { LoginState.Error(token.exceptionOrNull()?.message.orEmpty()) }
+                _state.update { LoginState.Error(login.exceptionOrNull()?.message.orEmpty()) }
             }
 
         }

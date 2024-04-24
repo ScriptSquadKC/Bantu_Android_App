@@ -1,6 +1,7 @@
 package com.example.bantu.data.Remote
 
 import com.example.bantu.AppClass
+import com.example.bantu.Domain.Model.AuthResponse
 import com.example.bantu.Domain.Model.User
 import com.example.bantu.di.ACCESS_TOKEN
 import com.example.bantu.di.ID_USER
@@ -21,7 +22,7 @@ class Repository @Inject constructor(
         if (response.accesToken.isEmpty()) {
             return "Respository vacio"
         } else {
-            return response.accesToken
+            return "Ok login"
         }
     }
 

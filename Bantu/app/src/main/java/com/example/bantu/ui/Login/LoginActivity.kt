@@ -95,7 +95,7 @@ fun LoginScreen(loginViewModel: LoginViewModel){
 
     when (state) {
         is LoginState.Success -> {
-            val token = (state as LoginState.Success).token
+            val token = (state as LoginState.Success).login
             val intent = Intent(LocalContext.current, HomeActivity::class.java)
             LocalContext.current.startActivity(intent)
             (LocalContext.current as? Activity)?.finish()

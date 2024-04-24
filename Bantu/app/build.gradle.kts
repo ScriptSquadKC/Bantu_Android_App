@@ -87,6 +87,7 @@ dependencies {
     // Async Image
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+    //Test
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -96,5 +97,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.2.1")
+    testImplementation("org.testng:testng:6.9.6")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("io.mockk:mockk:1.13.9")
+
+
+
+    //Mas Test
+    testImplementation("app.cash.turbine:turbine:0.6.0")
 
 }

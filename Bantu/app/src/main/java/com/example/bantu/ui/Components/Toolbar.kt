@@ -42,8 +42,8 @@ fun Toolbar(
 ) {
     val nameUser: String = name ?: "Usuario"
     //val photoUser = photo ?: "https://image.pngaaa.com/553/2189553-middle.png"
-    val photoUser = photo ?: "http://90.163.132.130:8090/bantu/user03.png"
-    //val photoUser = "https://image.pngaaa.com/553/2189553-middle.png"
+    //val photoUser = photo ?: "http://90.163.132.130:8090/bantu/user03.png"
+    val photoUser = "https://hips.hearstapps.com/hmg-prod/images/pradells-1660902907.jpg"
     //Log.w("PHOTO", photoUser)
 
     TopAppBar(
