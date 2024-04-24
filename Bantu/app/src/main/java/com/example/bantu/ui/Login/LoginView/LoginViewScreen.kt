@@ -44,8 +44,15 @@ fun LoginViewScreen(
     loginViewModel: LoginViewModel,
     navController: NavController
 ) {
+    /*
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+     */
+    var username = "jpadrells@bantu.com"
+    var password = "password"
+
+
 
     var emailError by remember { mutableStateOf(false) }
     var passwordError by remember { mutableStateOf(false) }
