@@ -50,8 +50,8 @@ import com.example.bantu.ui.Components.CheckBoxBotom
 
 @Composable
 fun LoginViewScreen(
-    //loginViewModel: LoginViewModel,
-    //navController: NavController
+    loginViewModel: LoginViewModel,
+    navController: NavController
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -197,12 +197,12 @@ fun LoginViewScreen(
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.size(30.dp))
+                Spacer(modifier = Modifier.size(25.dp))
                 Button(
                     onClick = {
 
                         if (username.contains("@") && password.length >= 4) {
-                            //loginViewModel.launchLogin(username, password)
+                            loginViewModel.launchLogin(username, password)
                         } else {
                             emailError = !username.contains("@")
                             passwordError = password.length < 4
@@ -221,12 +221,12 @@ fun LoginViewScreen(
 
                 }
 
-                Spacer(modifier = Modifier.size(30.dp))
+                Spacer(modifier = Modifier.size(50.dp))
 
                 Button(
                     onClick = {
                         // IR AL REGISTER_SCREEN
-                        //navController.navigate("RegisterRoute")
+                        navController.navigate("RegisterRoute")
 
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -252,6 +252,6 @@ fun LoginViewScreen(
 fun LoginScreenPreview() {
     val loginActivity = LoginActivity()
     BantuTheme {
-        LoginViewScreen()
+       // LoginViewScreen()
     }
 }

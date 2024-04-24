@@ -56,8 +56,8 @@ class LoginActivity : ComponentActivity() {
 
                             if (AppClass.prefRepository.loadTokenPreferences(ACCESS_TOKEN).isEmpty()){
                                 LoginViewScreen(
-                                    //loginViewModel,
-                                    //navController
+                                    loginViewModel,
+                                    navController
                                 )
                                 LoginScreen(loginViewModel)
                             }else{
