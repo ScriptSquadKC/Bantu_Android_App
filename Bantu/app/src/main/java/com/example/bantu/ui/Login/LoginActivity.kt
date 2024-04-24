@@ -55,7 +55,10 @@ class LoginActivity : ComponentActivity() {
                         composable("Login") {
 
                             if (AppClass.prefRepository.loadTokenPreferences(ACCESS_TOKEN).isEmpty()){
-                                LoginViewScreen(loginViewModel, navController)
+                                LoginViewScreen(
+                                    //loginViewModel,
+                                    //navController
+                                )
                                 LoginScreen(loginViewModel)
                             }else{
 

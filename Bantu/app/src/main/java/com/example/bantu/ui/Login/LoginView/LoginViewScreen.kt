@@ -11,12 +11,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Text
@@ -43,14 +46,19 @@ import com.example.bantu.ui.Login.LoginActivity
 import com.example.bantu.ui.theme.BantuTheme
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.example.bantu.ui.Components.CheckBoxBotom
 
 @Composable
-fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController) {
+fun LoginViewScreen(
+    //loginViewModel: LoginViewModel,
+    //navController: NavController
+) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     var emailError by remember { mutableStateOf(false) }
     var passwordError by remember { mutableStateOf(false) }
+    val checkedState = remember { mutableStateOf(true) }
     val fontSizeTexfield = 14
 
     Box(
@@ -131,20 +139,36 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                     color = Color.Red
                 )
             }
-            LazyRow(
-                modifier = Modifier
-            ) {
-                item() {
 
+            Spacer(modifier = Modifier.size(15.dp))
 
-                    TextButton(onClick = { /* Do something! */ }) {
-                        Row() {
-                            Icon(
-                                imageVector = Icons.Filled.CheckCircle,
-                                contentDescription = stringResource(R.string.REMERBERME),
-                                modifier = Modifier.size(14.dp),
-                                tint = colorResource(id = R.color.orange)
+            Box (
+                modifier = Modifier.size(250.dp, 30.dp)
+
+            ){
+                Row(
+                    modifier = Modifier
+                ) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.size(100.dp, 30.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Checkbox(
+                                modifier = Modifier
+                                    .size(5.dp),
+                                checked = checkedState.value,
+                                onCheckedChange = { checkedState.value = it },
+                                colors = CheckboxDefaults.colors(
+                                    checkedColor = colorResource(id = R.color.orange),
+
+                                    uncheckedColor = Color.Gray,
+                                    checkmarkColor = Color.White
+                                ),
                             )
+                            Spacer(modifier = Modifier.size(10.dp))
                             Text(
                                 text = stringResource(R.string.REMERBERME),
                                 fontSize = 10.sp,
@@ -152,33 +176,33 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                             )
                         }
                     }
-                }
 
-                item() {
-                    Spacer(modifier = Modifier.size(50.dp))
-                }
-
-                item() {
-                    TextButton(onClick = { /* Do something! */ }) {
-                        Text(
-                            text = stringResource(R.string.FORGOT_PASSWORD),
-                            fontSize = 10.sp,
-                            color = colorResource(id = R.color.orange)
-                        )
-
+                    Box() {
+                        Spacer(modifier = Modifier.size(50.dp))
+                    }
+                    Box {
+                        TextButton(onClick = { /* Do something! */ }) {
+                            Text(
+                                text = stringResource(R.string.FORGOT_PASSWORD),
+                                fontSize = 10.sp,
+                                color = colorResource(id = R.color.orange)
+                            )
+                        }
                     }
                 }
-
             }
+
+
             Column(
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.size(30.dp))
                 Button(
                     onClick = {
 
                         if (username.contains("@") && password.length >= 4) {
-                            loginViewModel.launchLogin(username, password)
+                            //loginViewModel.launchLogin(username, password)
                         } else {
                             emailError = !username.contains("@")
                             passwordError = password.length < 4
@@ -202,7 +226,7 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
                 Button(
                     onClick = {
                         // IR AL REGISTER_SCREEN
-                        navController.navigate("RegisterRoute")
+                        //navController.navigate("RegisterRoute")
 
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -228,6 +252,6 @@ fun LoginViewScreen(loginViewModel: LoginViewModel, navController: NavController
 fun LoginScreenPreview() {
     val loginActivity = LoginActivity()
     BantuTheme {
-        //LoginViewScreen()
+        LoginViewScreen()
     }
 }
