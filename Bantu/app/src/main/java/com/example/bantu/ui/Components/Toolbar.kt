@@ -64,7 +64,7 @@ fun Toolbar(
                         verticalAlignment = Alignment.CenterVertically
 
                     ) {
-                        item() {
+                        item {
 
                             Image(
                                 painter = rememberAsyncImagePainter(

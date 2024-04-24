@@ -25,7 +25,6 @@ import com.example.bantu.R
 import com.example.bantu.ui.Components.BotomBar
 import com.example.bantu.ui.Components.ImageHomeComponent
 import com.example.bantu.ui.Components.Toolbar
-import com.example.bantu.ui.Home.HomeProfesional.HomeProfesionalViewModel
 import com.example.bantu.ui.Home.HomeViewModel
 
 

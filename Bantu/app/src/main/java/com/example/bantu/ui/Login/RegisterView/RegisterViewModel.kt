@@ -1,6 +1,5 @@
 package com.example.bantu.ui.Login.RegisterView
 
-import android.provider.ContactsContract.CommonDataKinds.Nickname
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bantu.data.Remote.Repository
@@ -20,7 +19,6 @@ class RegisterViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state: MutableStateFlow<RegisterState> = MutableStateFlow(RegisterState.Idle)
     val state: StateFlow<RegisterState> = _state.asStateFlow()
-
 
 
     fun launchRegister(
